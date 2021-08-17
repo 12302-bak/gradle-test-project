@@ -1,0 +1,1 @@
+git remote set-url --add origin https://gitee.com/xhsgg12302/gradle-test-project.git
