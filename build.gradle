@@ -6,14 +6,19 @@ allprojects {
         springbootVersion = '2.0.3.RELEASE'
         junitVersion = '4.12'
     }
+
 }
 
 subprojects{
     apply plugin: 'java'
-    apply plugin: 'idea'
+    // 貌似 生成.idea 文件用的
+    //apply plugin: 'idea'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
+
+    // 定义输出目录
+    project.buildDir = "$projectDir/target"
 
     // java编译的时候缺省状态下会因为中文字符而失败
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
@@ -35,6 +40,8 @@ subprojects{
         }
     }
 
+
+
     configurations {
         // 所有需要忽略的包定义在此
         //all*.exclude group: 'commons-httpclient'
@@ -42,9 +49,9 @@ subprojects{
         //all*.exclude group: 'commons-beanutils', module: 'commons-beanutils'
     }
 
-    /*gradle.projectsEvaluated {
+    gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {
             options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
         }
-    }*/
+    }
 }

@@ -6,12 +6,25 @@ group 'site.wtfu'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
+//groovyClasspath = '/Users/stevenobelia/software/groovy-3.0.8/lib'
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:3.0.8'
+    //implementation localGroovy()
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+//compileGroovy {
+//    groovyClasspath = files(['/Users/stevenobelia/software/groovy-3.0.8/lib'])
+//}
