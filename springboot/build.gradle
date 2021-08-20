@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        jcenter()
+    }
+    /*dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.5.RELEASE")
+    }*/
+}
+
+
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.4.10'
+}
+
+
+group 'site.wtfu'
+version '1.0-SNAPSHOT'
+
+archivesBaseName = 'springboot'
+
+
+dependencies {
+    implementation project(':app')
+    implementation "org.springframework.boot:spring-boot-starter-web:$springbootVersion"
+    implementation "org.springframework.boot:spring-boot-starter:$springbootVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-test:$springbootVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
