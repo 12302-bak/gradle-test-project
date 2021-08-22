@@ -1,5 +1,7 @@
 package site.wtfu.framework
 
+import org.junit.Test
+
 /**
  * groovy demo
  */
@@ -9,5 +11,10 @@ class Demo {
 
         println 'hello world'
 
+    }
+
+    @Test
+    void test(){
+        print 'xhsgg12302@126.com'
     }
 }

@@ -1,0 +1,7 @@
+this is a txt
+and this is second line
+
+commit information is 'c1'
+
+last one
+this is end line
