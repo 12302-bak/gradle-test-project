@@ -9,4 +9,64 @@ sourceCompatibility = 1.8
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    implementation('org.hibernate:hibernate') {
+
+        //in case of versions conflict '3.1' version of hibernate wins:
+        version {
+            strictly('3.1')
+        }
+
+        //excluding a particular transitive dependency:
+        exclude module: 'cglib' //by artifact name
+        exclude group: 'org.jmock' //by group
+        exclude group: 'org.unwanted', module: 'iAmBuggy' //by both name and group
+
+        //disabling all transitive dependencies of this dependency
+        transitive = false
+    }
+
+    //we will use the Groovy version that ships with Gradle:
+    implementation localGroovy()
+
+    //our plugin requires Gradle API interfaces and classes to compile:
+    //implementation gradleApi()
+
+    implementation 'io.github.wechaty:wechaty:0.1.5-SNAPSHOT'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.13.1'
+    implementation 'com.lmax:disruptor:3.4.2'
 }
+
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+
+task aTask {
+    println "----------- task..."
+}
+
+task bTask(group: 'verification') {
+    println "----------- group task..."
+}
+
+
+class IncrementTask extends DefaultTask{
+    String msg = 'default'
+
+    IncrementTask() {
+        group '自定义任务'
+        description  '任务描述'
+    }
+
+    @TaskAction
+    void run() {
+        println 'Increment Task __$msg'
+    }
+}
+
+task cTask(type: IncrementTask) {
+    msg = 'create task'
+}
+
+

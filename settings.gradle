@@ -6,4 +6,3 @@ include 'lib1'
 include 'lib4'
 include 'groovy-test'
 include 'springboot'
-

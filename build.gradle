@@ -24,9 +24,10 @@ subprojects{
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
 
     repositories {
-        mavenLocal()
+        // mavenLocal()
         maven { url 'http://mvn.wtfu.site/nexus/content/groups/public' }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        jcenter()
         mavenCentral()
     }
 
