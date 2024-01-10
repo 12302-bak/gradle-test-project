@@ -18,7 +18,7 @@ subprojects{
     targetCompatibility = 1.8
 
     // 定义输出目录
-    project.buildDir = "$projectDir/target"
+    // project.buildDir = "$projectDir/target"
 
     // java编译的时候缺省状态下会因为中文字符而失败
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
@@ -37,13 +37,14 @@ subprojects{
         // throw new RuntimeException()
         // implementation 'cn.therouter:router:1.2.0-beta4'
         // https://mvnrepository.com/artifact/cn.therouter/router
-        implementation 'cn.therouter:router:1.2.0-beta2'
+        // implementation 'cn.therouter:router:1.2.0-beta2'
         implementation 'com.github.pagehelper:pagehelper:5.1.10'
     }
 
     jar {
         manifest {
             attributes("Implementation-Title": "Gradle")
+            attributes("Created-By-User": "12302")
         }
     }
 
