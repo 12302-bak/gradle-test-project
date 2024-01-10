@@ -25,14 +25,20 @@ subprojects{
 
     repositories {
         // mavenLocal()
-        maven { url 'http://mvn.wtfu.site/nexus/content/groups/public' }
         maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
+        maven { url 'http://mvn.wtfu.site/nexus/content/groups/public' }
         jcenter()
         mavenCentral()
     }
 
     dependencies {
         testCompile group: 'junit', name: 'junit', version: "$junitVersion"
+        // https://mvnrepository.com/artifact/cn.therouter/router
+        // throw new RuntimeException()
+        // implementation 'cn.therouter:router:1.2.0-beta4'
+        // https://mvnrepository.com/artifact/cn.therouter/router
+        implementation 'cn.therouter:router:1.2.0-beta2'
+        implementation 'com.github.pagehelper:pagehelper:5.1.10'
     }
 
     jar {
@@ -42,6 +48,7 @@ subprojects{
     }
 
 
+    task 'abc' {}
 
     configurations {
         // 所有需要忽略的包定义在此

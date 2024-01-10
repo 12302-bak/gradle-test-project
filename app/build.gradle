@@ -70,3 +70,10 @@ task cTask(type: IncrementTask) {
 }
 
 
+
+
+
+task clean8(type: Delete) {
+    delete rootProject.buildDir
+}
+//new RuntimeException().printStackTrace()
