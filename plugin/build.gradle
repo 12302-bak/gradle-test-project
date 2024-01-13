@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group = 'site.wtfu.framework'
+version = '1.0-SNAPSHOT'
+
+apply plugin: 'java-library'
+apply plugin: 'groovy'
+
+
+dependencies {
+    // 在其build.gradle中引入Groovy插件，并将Gradle API添加为编译时依赖项
+    compile gradleApi()
+    compile localGroovy()
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+test {
+    useJUnitPlatform()
+}
+
+//用于发布到本地仓库
+apply plugin: 'maven-publish'
+//发布配置
+publishing {
+    publications {
+        plugin(MavenPublication) {
+            from components.java
+            artifactId 'test-plugin'
+        }
+    }
+}

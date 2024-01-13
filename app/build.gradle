@@ -1,6 +1,25 @@
+buildscript{
+    repositories{
+        mavenLocal()
+    }
+    dependencies{
+        classpath 'site.wtfu.framework:test-plugin:1.0-SNAPSHOT'
+    }
+}
+
 plugins {
     id 'java'
 }
+
+apply plugin:"site.wtfu.plugin"
+
+aExtensions{
+    compileSdkVersion 29
+    bExtensions {
+        applicationId "site.wtfu.gradle"
+    }
+}
+
 
 group 'site.wtfu'
 version '1.0-SNAPSHOT'
